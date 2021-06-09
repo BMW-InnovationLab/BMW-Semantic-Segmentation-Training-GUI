@@ -1,0 +1,16 @@
+{
+  "base_dir": "/home/path/to/folder/BMW-Semantic-Segmentation-Training-GUI",
+  "image_name": "gluoncv_semantic_segmentation_training_api_gpu",
+  "api_folder": "training_api",
+  "dataset_folder_on_host": "datasets",
+  "checkpoints_folder_on_host": "checkpoints",
+  "inference_api_models_folder": "inference_api/models",
+  "servable_folder_on_host": "checkpoints/servable",
+  "classifier_folder_on_host": "classifiers",
+  "models_folder": "models",
+  "classifier_folder": "/classifiers",
+  "checkpoints_folder": "/checkpoints/",
+  "servable_folder": "/checkpoints/servable",
+  "dataset_folder": "/datasets/",
+  "networks_path": "assets/networks.json"
+}

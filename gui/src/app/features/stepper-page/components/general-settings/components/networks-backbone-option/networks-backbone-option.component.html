@@ -1,0 +1,35 @@
+<form nz-form [formGroup]="form">
+<nz-form-item style="width: 100%; display: block;">
+    <nz-form-label nzFlex="1">Networks:</nz-form-label>
+    <nz-form-control nzFlex="1" nzHasFeedback [nzErrorTip]="networkErrorTpl">
+        <nz-select nz-tooltip="Network to use. Eg. deeplab"
+                   nzTooltipPlacement="topRight" nzShowSearch nzAllowClear
+                   nzPlaceHolder="Eg. deeplab"
+                   formControlName="network">
+            <nz-option *ngFor="let network of architecture.networks" [nzLabel]="network" [nzValue]="network"></nz-option>
+        </nz-select>
+        <ng-template #networkErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+                Please select an network!
+            </ng-container>
+        </ng-template>
+    </nz-form-control>
+</nz-form-item>
+
+<nz-form-item style="width: 100%; display: block;" [hidden]="hideSettings.backbone_hidden">
+    <nz-form-label nzFlex="1">Backbone:</nz-form-label>
+    <nz-form-control nzFlex="1" nzHasFeedback [nzErrorTip]="backboneErrorTpl">
+        <nz-select nz-tooltip="Name of the backbone to use"
+                   nzTooltipPlacement="topRight" nzShowSearch nzAllowClear
+                   nzPlaceHolder="Eg. resnet50"
+                   formControlName="backbone">
+            <nz-option *ngFor="let backbone of architecture.backbones" [nzLabel]="backbone" [nzValue]="backbone"></nz-option>
+        </nz-select>
+        <ng-template #backboneErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+                Please select an backbone!
+            </ng-container>
+        </ng-template>
+    </nz-form-control>
+</nz-form-item>
+</form>

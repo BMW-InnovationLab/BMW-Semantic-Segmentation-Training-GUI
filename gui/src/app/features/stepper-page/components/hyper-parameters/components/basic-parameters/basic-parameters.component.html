@@ -1,0 +1,73 @@
+<form [formGroup]="form"
+      nz-form
+      nzLayout="vertical"
+      style="width: 100%; display: flex; flex-direction: column">
+    <nz-form-item style="display: block">
+        <nz-form-label nzFlex="1">Learning Rate:</nz-form-label>
+        <nz-form-control [nzErrorTip]="lrErrorTpl" nzFlex="1" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             [nzStep]="0.01"
+                             [nzMax]="1"
+                             formControlName="lr"
+                             nz-tooltip="Learning Rate (used for training)"
+                             nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #lrErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item style="display: block;">
+        <nz-form-label nzFlex="1">Batch Size:</nz-form-label>
+        <nz-form-control [nzErrorTip]="bsErrorTpl" nzFlex="1" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             formControlName="batch_size"
+                             nz-tooltip="Batch Size (used for training)" nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #bsErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notInt')">
+                    Must be an int
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item style="display: block;">
+        <nz-form-label nzFlex="1">Epochs:</nz-form-label>
+        <nz-form-control [nzErrorTip]="eErrorTpl" nzFlex="1" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             formControlName="epochs"
+                             nz-tooltip="Epochs (used for training)" nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #eErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notInt')">
+                    Must be an int
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item style="display: block;">
+        <nz-form-label nzFlex="1">Validation batch size:</nz-form-label>
+        <nz-form-control [nzErrorTip]="eErrorTpl" nzFlex="1" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             formControlName="validation_batch_size"
+                             nz-tooltip="Validation batch size" nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #eErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notInt')">
+                    Must be an int
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+</form>

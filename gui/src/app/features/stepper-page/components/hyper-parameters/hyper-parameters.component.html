@@ -1,0 +1,11 @@
+<div *ngIf="!advancedChosen; else advanced" class="main-parameter-forms-container">
+    <app-basic-parameters [form]="form" style="width: 100%"></app-basic-parameters>
+</div>
+
+<ng-template #advanced>
+    <app-advanced-parameters [form]="form" style="width: 100%"></app-advanced-parameters>
+</ng-template>
+
+
+<nz-switch (click)="showAdvanced()" [ngModel]="advancedChosen" nzCheckedChildren="Advanced"
+           nzUnCheckedChildren="Basic" style="float: right"></nz-switch>

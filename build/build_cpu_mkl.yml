@@ -1,0 +1,39 @@
+version: '2.3'
+
+services:
+
+  docker_sdk:
+    image: gluoncv_semantic_segmentation_docker_sdk_api
+    build:
+      context: ../docker_sdk_api
+      dockerfile: docker/Dockerfile
+      args:
+        http_proxy:
+        https_proxy:
+  user_interface:
+    image: gluoncv_semantic_segmentation_gui
+    build:
+      context: ../gui
+      dockerfile: ./Dockerfile
+      args:
+        http_proxy:
+        https_proxy:
+
+  training_api:
+    image: gluoncv_semantic_segmentation_training_api_cpu_mkl
+    build:
+      context: ../training_api
+      dockerfile: docker/CPU_MKL/Dockerfile
+      args:
+        http_proxy:
+        https_proxy:
+
+
+  inference_api:
+    image: gluoncv_semantic_segmentation_inference_api_cpu
+    build:
+      context: ../inference_api
+      dockerfile: docker/CPU/Dockerfile
+      args:
+        http_proxy:
+        https_proxy:

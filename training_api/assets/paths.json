@@ -1,0 +1,13 @@
+{
+  "images_dir": "/dataset/images",
+  "labels_dir": "/dataset/labels",
+  "training_dir": "/assets/training_dir/data/",
+  "model_dir": "/assets/training_dir/model/",
+  "checkpoints_dir": "/checkpoints",
+  "servable_dir": "/checkpoints/servable",
+  "inference_model_dir": "/inference_api/models",
+  "classifier_dir": "/classifiers/"
+}
+
+
+

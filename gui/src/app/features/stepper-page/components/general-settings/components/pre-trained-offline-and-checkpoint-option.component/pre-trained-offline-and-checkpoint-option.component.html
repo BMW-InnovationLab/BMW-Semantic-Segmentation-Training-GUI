@@ -1,0 +1,20 @@
+<form nz-form [formGroup]="form">
+<nz-form-item style="width: 100%; display: block;">
+    <nz-form-label nzFlex="1">Local Weights :</nz-form-label>
+    <nz-form-control [nzErrorTip]="networkErrorTpl" nzFlex="1" nzHasFeedback>
+        <nz-tree-select
+                nzPlaceHolder="Weight"
+                nzShowSearch
+                formControlName="chosenWeight"
+                nzVirtualHeight="100px"
+                [nzNodes]="localWeightsNodes"
+                [nzDisplayWith]="showValue">
+        </nz-tree-select>
+        <ng-template #networkErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+                Please select an network!
+            </ng-container>
+        </ng-template>
+    </nz-form-control>
+</nz-form-item>
+</form>

@@ -1,0 +1,19 @@
+<form nz-form [formGroup]="form">
+<nz-form-item style="width: 100%; display: block;">
+    <nz-form-label nzFlex="1">Pre-Trained Network:</nz-form-label>
+    <nz-form-control #formControlComponent nzFlex="1" nzHasFeedback [nzErrorTip]="networkErrorTpl">
+        <nz-select nz-tooltip="Pre-trained network for training"
+                   nzTooltipPlacement="topRight"
+                   formControlName="network"
+                   nzShowSearch nzAllowClear
+                   nzPlaceHolder="Network">
+            <nz-option *ngFor="let network of networks.pretrained_networks" [nzLabel]="network" [nzValue]="network"></nz-option>
+        </nz-select>
+        <ng-template #networkErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+                Please select an backbone!
+            </ng-container>
+        </ng-template>
+    </nz-form-control>
+</nz-form-item>
+</form>

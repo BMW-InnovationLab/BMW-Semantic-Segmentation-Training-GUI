@@ -1,0 +1,24 @@
+{
+  "pretrained_networks": [
+    "fcn_resnet50_ade",
+    "fcn_resnet101_ade",
+    "fcn_resnet101_voc",
+    "psp_resnet50_ade",
+    "psp_resnet101_ade",
+    "psp_resnet101_voc",
+    "deeplab_resnet101_voc",
+    "deeplab_resnet101_ade",
+    "deeplab_resnet50_ade"
+  ],
+  "backbones": [
+    "resnet50",
+    "resnet101",
+    "resnet50v1b",
+    "resnet101v1b"
+  ],
+  "networks": [
+    "fcn",
+    "deeplab",
+    "psp"
+  ]
+}

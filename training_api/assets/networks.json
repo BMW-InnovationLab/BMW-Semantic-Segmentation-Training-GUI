@@ -1,0 +1,18 @@
+{
+    "select_all":  false,
+    "resnet50_v1s":false,
+    "resnet101_v1s":false,
+    "resnet50_v1b":false,
+    "resnet101_v1b":false,
+    "fcn_resnet50_ade":  true,
+    "fcn_resnet101_ade":  false,
+    "fcn_resnet101_voc":  false,
+    "psp_resnet50_ade":  false,
+    "psp_resnet101_ade":  false,
+    "psp_resnet101_voc":  false,
+    "deeplab_resnet101_voc" :  false,
+    "deeplab_resnet101_ade":  false,
+    "deeplab_resnet50_ade":  false
+}
+
+

@@ -1,0 +1,181 @@
+<form [formGroup]="form" nz-form nzLayout="vertical"
+      style="justify-content: space-between; display: flex; flex-wrap: wrap; width: 100%; position: relative">
+
+    <nz-form-item class="form-item">
+        <nz-form-label nzSpan="6" style="width: 100%;">Learning Rate:</nz-form-label>
+        <nz-form-control [nzErrorTip]="lrErrorTpl"
+                         nzFlex="1"
+                         nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             [nzStep]="0.01"
+                             [nzMax]="1"
+                             style="width: 99%"
+                             formControlName="lr"
+                             nz-tooltip="Learning Rate (used for training)"
+                             nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #lrErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="form-item">
+        <nz-form-label nzFlex="1">Batch Size:</nz-form-label>
+        <nz-form-control [nzErrorTip]="bsErrorTpl" nzFlex="1" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             style="width: 99%"
+                             formControlName="batch_size"
+                             nz-tooltip="Batch Size (used for training)" nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #bsErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notInt')">
+                    Must be an int
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="form-item">
+        <nz-form-label nzFlex="1">Epochs:</nz-form-label>
+        <nz-form-control [nzErrorTip]="eErrorTpl" nzFlex="1" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             style="width: 99%"
+                             formControlName="epochs"
+                             nz-tooltip="Epochs (used for training)" nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #eErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notInt')">
+                    Must be an int
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="form-item">
+        <nz-form-label nzFlex="1">Validation batch size:</nz-form-label>
+        <nz-form-control [nzErrorTip]="eErrorTpl" nzFlex="1" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             style="width: 99%"
+                             formControlName="validation_batch_size"
+                             nz-tooltip="Validation batch size" nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #eErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notInt')">
+                    Must be an int
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+        <nz-form-label>Momentum:</nz-form-label>
+        <nz-form-control [nzErrorTip]="momentumErrorTpl" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             [nzMax]="1"
+                             nzStep="0.1"
+                             style="width: 99%"
+                             formControlName="momentum"
+                             nz-tooltip="Momentum (used for training)"
+                             nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #momentumErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="form-item">
+        <nz-form-label>Weight Decay:</nz-form-label>
+        <nz-form-control [nzErrorTip]="wdErrorTpl" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             [nzMax]="1"
+                             style="width: 99%"
+                             formControlName="weight_decay"
+                             nz-tooltip="Weight Decay"
+                             nzPrecision="4"
+                             nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #wdErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="form-item">
+        <nz-form-label>Number of Workers:</nz-form-label>
+        <nz-form-control [nzErrorTip]="nbwErrorTpl" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             style="width: 99%"
+                             formControlName="num_workers"
+                             nz-tooltip="Number of Workers"
+                             nzTooltipPlacement="topRight">nz-input-number>
+            </nz-input-number>
+            <ng-template #nbwErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notInt')">
+                    Must be an int
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="form-item">
+        <nz-form-label>Crop Size:</nz-form-label>
+        <nz-form-control [nzErrorTip]="cropSizeErrorTpl" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             style="width: 99%"
+                             formControlName="crop_size"
+                             nz-tooltip="Choosing the input size of the network"
+                             nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #cropSizeErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notInt')">
+                    Must be an int
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="form-item">
+        <nz-form-label>Base Size</nz-form-label>
+        <nz-form-control [nzErrorTip]="baseSizeErrorTpl" nzHasFeedback>
+            <nz-input-number [nzMin]="0"
+                             style="width: 99%"
+                             formControlName="base_size"
+                             nz-tooltip="Size used when augmenting (images are resized between base_size/2 and base_size*2 and then cropped to match input_size which created a zoom-out zoom-in effect"
+                             nzTooltipPlacement="topRight">
+            </nz-input-number>
+            <ng-template #baseSizeErrorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    Please input a number!
+                </ng-container>
+                <ng-container *ngIf="control.hasError('notInt')">
+                    Must be an int
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="form-item">
+        <nz-form-control>
+            <label formControlName="augment_data"
+                   nz-checkbox
+                   style="width: 99%"
+                   nz-tooltip="Set to true to perform our data augmentation before training , false to just resize to input_size and train">Augment Data</label>
+        </nz-form-control>
+    </nz-form-item>
+</form>
