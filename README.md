@@ -4,10 +4,9 @@
 
 This repository allows you to get started with training a State-of-the-art Deep Learning model with little to no configuration needed! You provide your labeled dataset and you can start the training right away. This repository is based on [Gluoncv's](https://cv.gluon.ai/build/examples_segmentation/index.html) Framework. You can check the networks statistics [here](https://gluon-cv.mxnet.io/model_zoo/segmentation.html)
 
-- This repository is based on [GluonCv](https://cv.gluon.ai/build/examples_segmentation/index.html)
 - All supported networks used in this project are taken from [GluonCv model zoo](https://gluon-cv.mxnet.io/model_zoo/segmentation.html) 
-- The app was tested with **Google Chrome** and it is recommended to use Chrome when training.
-- This repository support training on both **CPU** and on multiple **GPUs**
+- The app was tested with **Google Chrome**, hence it is recommended to use Chrome when training.
+- This repository supports training on both **CPU** and on multiple **GPUs**
 - **Intel MKL** is supported on both **CPU** and **GPU** for faster training 
 
 ![](./documentation_images/1.gif)
