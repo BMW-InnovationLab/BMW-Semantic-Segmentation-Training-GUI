@@ -6,9 +6,11 @@ This repository allows you to get started with training a State-of-the-art Deep 
 
 - All supported networks used in this project are taken from [GluonCv model zoo](https://gluon-cv.mxnet.io/model_zoo/segmentation.html) 
 - The app was tested with **Google Chrome**, hence it is recommended to use Chrome when training.
-- This repository supports training on both **CPU** and on multiple **GPUs**
-- **Intel MKL** is supported on both **CPU** and **GPU** for faster training 
-
+- This solution can be deployed via 4 different setups 
+  - CPU
+  - GPU
+  - CPU with Intel MKL
+  - GPU with Intel MKL
 ![](./documentation_images/1.gif)
 
 <br>
