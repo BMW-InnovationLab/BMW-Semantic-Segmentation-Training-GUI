@@ -27,7 +27,7 @@ This repository allows you to get started with training a State-of-the-art Deep 
     2. [Remark docker sdk port](#remark---docker-sdk-port)
 5. [Label your own dataset](#label-your-own-dataset)
 6. [Dataset Folder Structure](#dataset-folder-structure)
-    1. [objectclasses.json file example](#objectclasses.json-file-example)
+    1. [objectclasses.json file example](#objectclassesjson-file-example)
 7. [Light-weight Mid-weight and Heavy-weight Solution](#light-weight-mid-weight-and-heavy-weight-solution)
 8. [Build the Solution](#build-the-solution)
     1. [GPU build](#gpu-build)
@@ -48,7 +48,7 @@ This repository allows you to get started with training a State-of-the-art Deep 
     7. [Stopping and Delete the model's container](#6--stopping-and-delete-the-models-container)
     8. [Testing the Model with Inference API](#7--testing-the-model-with-inference-api)
 11. [Training Hyper Parameters](#training-hyper-parameters)
-12. [Training Support Matrix](#training-support-mjatrix)
+12. [Training Support Matrix](#training-support-matrix)
 13. [Known Errors](#known-errors)
 13. [Acknowledgments](#acknowledgments)
 
