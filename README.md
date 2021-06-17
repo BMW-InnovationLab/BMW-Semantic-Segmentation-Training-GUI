@@ -19,38 +19,38 @@ This repository allows you to get started with training a State-of-the-art Deep 
 
 ##  Table of Contents
 
-1. [Prerequisites](##-Prerequisites)
-2. [How to check for prerequisites](##How-to-check-for-prerequisites)
-3. [Installing Prerequisites](##-Installing-Prerequisites)
-4. [Setting Up Project Requirements](##-Setting-Up-Project-Requirements)
-    1. [Validating the prerequisites installation](####-Validating-the-prerequisites-installation)
-    2. [Remark docker sdk port](###-Remark-\-\-docker-sdk-port)
-5. [Label your own dataset](##-Label-your-own-dataset)
-6. [Dataset Folder Structure](##-Dataset-Folder-Structure)
-    1. [objectclasses.json file example](####-objectclasses.json-file-example)
-7. [Light-weight Mid-weight and Heavy-weight Solution](##-Light\-weight-Mid\-weight-and-Heavy\-weight-Solution)
-8. [Build the Solution](##-Build-the-Solution)
-    1. [GPU build](#####-GPU-build)
-    2. [GPU with MKL support build](#####-GPU-with-MKL-support-build)
-    3. [CPU build](#####-CPU-build)
-    4. [CPU with MKL support build](#####-CPU-with-MKL-support-build)
-9. [Run the Solution](##-Run-the-Solution)
-    1. [GPU run](#####-GPU-run)
-    2. [GPU with MKL support run](#####-GPU-with-MKL-support-run)
-    3. [CPU run](#####-CPU-run)
-    4. [CPU with MKL support run](#####-CPU-with-MKL-support-run)
-10. [Usage](##-Usage)
-    1. [Preparing Dataset](####1\--Preparing-Dataset)
-    2. [Specifying General Settings](####2\--Specifying-General-Settings)
-    3. [Specifying Basic Hyper-parameters](####3\--Specifying-Basic-Hyper\-parameters)
-    4. [Specifying Advanced Hyper-parameters](####4\--Specifying-Advanced-Hyper\-parameters )
-    5. [Checking training logs](####5\--Checking-training-logs)
-    7. [Stopping and Delete the model's container](####6\--Stopping-and-Delete-the-model's-container)
-    8. [Testing the Model with Inference API](####7\--Testing-the-Model-with-Inference-API )
-11. [Training Hyper Parameters](##-Training-Hyper-Parameters)
-12. [Training Support Matrix](##-Training-Support-Matrix)
-13. [Known Errors](##-Known-Errors)
-13. [Acknowledgments](##-Acknowledgments)
+1. [Prerequisites](#prerequisites)
+2. [How to check for prerequisites](#how-to-check-for-prerequisites)
+3. [Installing Prerequisites](#installing-prerequisites)
+4. [Setting Up Project Requirements](#setting-up-project-requirements)
+    1. [Validating the prerequisites installation](#validating-the-prerequisites-installation)
+    2. [Remark docker sdk port](#remark---docker-sdk-port)
+5. [Label your own dataset](#label-your-own-dataset)
+6. [Dataset Folder Structure](#dataset-folder-structure)
+    1. [objectclasses.json file example](#objectclasses.json-file-example)
+7. [Light-weight Mid-weight and Heavy-weight Solution](#light-weight-mid-weight-and-heavy-weight-solution)
+8. [Build the Solution](#build-the-solution)
+    1. [GPU build](#gpu-build)
+    2. [GPU with MKL support build](#gpu-with-mkl-support-build)
+    3. [CPU build](#cpu-build)
+    4. [CPU with MKL support build](#cpu-with-mkl-support-build)
+9. [Run the Solution](#run-the-solution)
+    1. [GPU run](#gpu-run)
+    2. [GPU with MKL support run](#gpu-with-mkl-support-run)
+    3. [CPU run](#cpu-run)
+    4. [CPU with MKL support run](#cpu-with-mkl-support-run)
+10. [Usage](#usage)
+    1. [Preparing Dataset](#1--preparing-dataset)
+    2. [Specifying General Settings](#2--specifying-general-settings)
+    3. [Specifying Basic Hyper-parameters](#3--specifying-basic-hyper-parameters)
+    4. [Specifying Advanced Hyper-parameters](#4--specifying-advanced-hyper-parameters )
+    5. [Checking training logs](#5--checking-training-logs)
+    7. [Stopping and Delete the model's container](#6--stopping-and-delete-the-models-container)
+    8. [Testing the Model with Inference API](#7--testing-the-model-with-inference-api)
+11. [Training Hyper Parameters](#training-hyper-parameters)
+12. [Training Support Matrix](#training-support-mjatrix)
+13. [Known Errors](#known-errors)
+13. [Acknowledgments](#acknowledgments)
 
 ## Prerequisites
 
@@ -173,7 +173,7 @@ In case this port is used by another application. The API can be configured to r
 
   *gui/src/environments/environment.prod.ts*
 
-After those modification you should rebuild the solution for changes to take place.
+After those modifications you should rebuild the solution for changes to take place.
 
 ## Label your own dataset
 
@@ -181,7 +181,7 @@ To label your own dataset for semantic segmentation training, you can install th
 
 **Make sure to convert the labels to the corresponding format required for the semantic segmentation workflow (Read the [semantic segmentation](https://github.com/wkentaro/labelme/tree/master/examples/semantic_segmentation) labelme documentation)**
 
-**JPEGImages** and **SegmentationClassPNG** are the respective images and labels folders needed , place it in your projects repository.
+**JPEGImages** and **SegmentationClassPNG** are the respective images and labels folders needed, place them in your project's repository.
 
 
 
@@ -219,15 +219,15 @@ The following is an example of how a dataset should be structured. Please put al
 
 ![](documentation_images/light_weight.png)
 
-**Midweight:** Downloading specific supported  online pre-trained weights during the docker image build.<br>
- To do that, open the json file `training_api/assets/networks.json` and change the values of the networks you wish to download to **true**. 
+**Midweight:** Downloading specific supported online pre-trained weights during the docker image build.<br>
+ To do that, open the JSON file `training_api/assets/networks.json` and change the values of the networks you wish to download to **true**. 
 
 ![](documentation_images/mid_weight.png)
 
 
 
-**Heavyweight:** Downloading all the supported  online pre-trained weights during the docker image build. <br>
- To do that, open the json file `training_api/assets/networks.json` and change the value of **"select_all"** to **true**.
+**Heavyweight:** Downloading all the supported online pre-trained weights during the docker image build. <br>
+ To do that, open the JSON file `training_api/assets/networks.json` and change the value of **"select_all"** to **true**.
 
 
 ![](documentation_images/heavy_weight.png)
@@ -240,15 +240,15 @@ We offer **Intel MKL** support for both **CPU** and **GPU** version but please *
 
 - If you wish to deploy the **CPU with MKL** support solution you may notice **longer build time and larger docker image size** but with **faster training time**
 - If you wish to deploy the **GPU with MKL** support solution you will **only benefit from MKL** accelerated training time  **when choosing CPU architecture in the general setting page in the training GUI** and you will also notice **longer build time and larger docker image** but with **faster training time**
-- If you're note planning on taking advantage of the **Intel MKL**  support please use the standard **GPU** and **CPU** build and run. 
+- If you're not planning on taking advantage of the **Intel MKL**  support please use the standard **GPU** and **CPU** build and run. 
 
-You can also refer to [ training support matrix ](##Training-Support-Matrix) for more information.
+You can also refer to [ training support matrix ](#training-support-matrix) for more information.
 
 
 
 - ##### GPU build
 
-  If you wish want to deploy the training work-flow in **GPU** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **GPU** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f build/build_gpu.yml build
@@ -256,7 +256,7 @@ You can also refer to [ training support matrix ](##Training-Support-Matrix) for
 
 - ##### GPU with MKL support build
 
-  If you wish want to deploy the training work-flow in **GPU with MKL support** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **GPU with MKL support** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f build/build_gpu_mkl.yml build
@@ -264,7 +264,7 @@ You can also refer to [ training support matrix ](##Training-Support-Matrix) for
 
 - ##### CPU build
 
-  If you wish want to deploy the training work-flow in **CPU** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **CPU** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f build/build_cpu.yml build
@@ -272,7 +272,7 @@ You can also refer to [ training support matrix ](##Training-Support-Matrix) for
 
 - ##### CPU with MKL support build
 
-  If you wish want to deploy the training work-flow in **CPU with MKL support** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **CPU with MKL support** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f build/build_cpu_mkl.yml build
@@ -284,7 +284,7 @@ You can also refer to [ training support matrix ](##Training-Support-Matrix) for
 
 - ##### GPU run
 
-  If you wish want to deploy the training work-flow in **GPU** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **GPU** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f run/run_gpu.yml up
@@ -292,7 +292,7 @@ You can also refer to [ training support matrix ](##Training-Support-Matrix) for
 
 - ##### GPU with MKL support run
 
-  If you wish want to deploy the training work-flow in **GPU with MKL support** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **GPU with MKL support** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f run/run_gpu_mkl.yml up
@@ -300,7 +300,7 @@ You can also refer to [ training support matrix ](##Training-Support-Matrix) for
 
 - ##### CPU run
 
-  If you wish want to deploy the training work-flow in **CPU** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **CPU** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f run/run_cpu.yml up
@@ -308,7 +308,7 @@ You can also refer to [ training support matrix ](##Training-Support-Matrix) for
 
 - ##### CPU with MKL support run
 
-  If you wish want to deploy the training work-flow in **CPU with MKL support** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **CPU with MKL support** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f run/run_cpu_mkl.yml up
@@ -337,7 +337,7 @@ Prepare your dataset for training
 
 #### 2- Specifying General Settings
 
-Specify the general parameters for you docker container
+Specify the general parameters for your docker container
 
 ![](./documentation_images/3.gif)
 
@@ -388,16 +388,16 @@ You can test your trained model using the inference API provided
 
 ## Training Hyper Parameters
 
-- **Learning rate:** learning rate defines the speed of with network updates its parameters. Using low learning rate will result in smooth convergance but will slow the learning process and vice-versa. (default value : 0.001)
-- **Batch size:** batch size used for training. It is the number of n_samples passed to the network before parameter update occures.(default value : 1)
+- **Learning rate:** learning rate defines the speed of with network updates its parameters. Using a low learning rate will result in smooth convergence but will slow the learning process and vice-versa. (default value : 0.001)
+- **Batch size:** batch size used for training. It is the number of n_samples passed to the network before parameter update occurs.(default value: 1)
 - **Epochs:** number of epochs is the number of times where the training data is passed to the network. The best practice is to increase the number of epochs until validation accuracy start decreasing even if the training accuracy start increasing, this is helpful to eliminate overfitting  (default value : 15)
-- **Validation batch size:** batch size used for validating. Similar to the training epochs but used for the validation process (default value : 1)
-- **Momentum:** momentum is used to specify the direction of the next iteration using the previous iteration. It is helpful because is eleminate oscillations in training. (default value : 0.9 recommended value between 0.5 and 0.9)
-- **Weight decay**: weight-decay. This is a small number added to the loss function to prevent the loss from encreasing exponentially(default value : 0.0001)
+- **Validation batch size:** batch size used for validating. Similar to the training epochs but used for the validation process (default value: 1)
+- **Momentum:** momentum is used to specify the direction of the next iteration using the previous iteration. It is helpful because it eliminates oscillations in training. (default value : 0.9 recommended value between 0.5 and 0.9)
+- **Weight decay**: weight-decay. This is a small number added to the loss function to prevent the loss from increasing exponentially(default value: 0.0001)
 - **Number of workers**: number of workers that fetch data and load them into memory (default value : 1)
-- **Crop size:** choosing the input size of the network (use whether data_augmenting[data augmenting explained below] is true or false) (default value : 480)
+- **Crop size:** choosing the input size of the network (use whether data_augmenting[data augmenting explained below] is true or false) (default value: 480)
 - **Base size:** size used when augmenting (images are resized between base_size/2 and base_size*2 and then cropped to match input_size which created a zoom-out zoom-in effect) (default value : 520)
-- **Augment Data:** set to true to perform our data augmentation before training , false to just resize to input_size and train. If true,check the augmentation documentation [here](./docs/Data_Augmentation.md) file to see how the data is augmented (default value : true) 
+- **Augment Data:** set to true to perform our data augmentation before training, false to just resize to input_size and train. If true,check the augmentation documentation [here](./docs/Data_Augmentation.md) file to see how the data is augmented (default value: true) 
 
 <br>
 <br>
@@ -419,12 +419,12 @@ You can test your trained model using the inference API provided
 
 ## Known Errors 
 
-  You might face some errors in some cases during the training. Most common ones are:
+  You might face some errors in some cases during the training. The most common ones are:
 
-  - `The running container has no RepoTag please kill to proceed: Container ID: <id-container>` This issue is caused by some container not having a name, in that case you should rename that container or kill (make sure it is safe to remove this container) it via `docker kill <id-container>`.
-  - `Job Not Started: 404 Client Error Not Found("pull access denied for <image-name>, repository does not exists or may require 'docker login' ...)` this issue is cause when you are trying to run a training docker image that you don't have. The main reason of this is not properly building the training_api or not setting up project requirements please refer to **Setting Up Project Requirements** section in the documentation.
-  - `Dataset Not Valid` this error means that you dataset structure is not valid or the images/labels formate are not supported.
-  - Training job not started after general settings step: One of the main reason is that the paths are not adjusted in `docker_sdk_api/assets/paths.json` field `base_dir`. You can solve this issue by running `./setup_solution_parameters.sh` and choosing the training version you want to use `GPU/CPU`.
+  - `The running container has no RepoTag please kill to proceed: Container ID: <id-container>` This issue is caused by some container not having a name, in that case, you should rename that container or kill (make sure it is safe to remove this container) it via `docker kill <id-container>`.
+  - `Job Not Started: 404 Client Error Not Found("pull access denied for <image-name>, the repository does not exist or may require 'docker login' ...)` this issue is caused when you are trying to run a training docker image that you don't have. The main reason for this is not properly building the training_api or not setting up project requirements please refer to **Setting Up Project Requirements** section in the documentation.
+  - `Dataset Not Valid` this error means that your dataset structure is not valid or the images/labels formate is not supported.
+  - Training job not started after general settings step: One of the main reasons is that the paths are not adjusted in `docker_sdk_api/assets/paths.json` field `base_dir`. You can solve this issue by running `./setup_solution_parameters.sh` and choosing the training version you want to use `GPU/CPU`.
 
 <br>
 <br>
