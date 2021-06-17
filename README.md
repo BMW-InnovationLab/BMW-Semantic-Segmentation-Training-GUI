@@ -7,14 +7,50 @@ This repository allows you to get started with training a State-of-the-art Deep 
 - All supported networks used in this project are taken from [GluonCv model zoo](https://gluon-cv.mxnet.io/model_zoo/segmentation.html) 
 - The app was tested with **Google Chrome**, hence it is recommended to use Chrome when training.
 - This solution can be deployed via 4 different setups 
-  - CPU
-  - GPU
-  - CPU with Intel MKL
-  - GPU with Intel MKL
+  - CPU for training using CPU
+  - GPU for training using GPU with support for CPU training as well 
+  - CPU with Intel MKL for training using CPU with Intel MKL for accelerated training speed 
+  - GPU with Intel MKL for training using GPU  with support for CPU training as well using Intel MKL for accelerated training speed 
+
 ![](./documentation_images/1.gif)
 
 <br>
 <br>
+
+##  Table of Contents
+
+1. [Prerequisites](##-Prerequisites)
+2. [How to check for prerequisites](##How-to-check-for-prerequisites)
+3. [Installing Prerequisites](##-Installing-Prerequisites)
+4. [Setting Up Project Requirements](##-Setting-Up-Project-Requirements)
+    1. [Validating the prerequisites installation](####-Validating-the-prerequisites-installation)
+    2. [Remark docker sdk port](###-Remark-\-\-docker-sdk-port)
+5. [Label your own dataset](##-Label-your-own-dataset)
+6. [Dataset Folder Structure](##-Dataset-Folder-Structure)
+    1. [objectclasses.json file example](####-objectclasses.json-file-example)
+7. [Light-weight Mid-weight and Heavy-weight Solution](##-Light\-weight-Mid\-weight-and-Heavy\-weight-Solution)
+8. [Build the Solution](##-Build-the-Solution)
+    1. [GPU build](#####-GPU-build)
+    2. [GPU with MKL support build](#####-GPU-with-MKL-support-build)
+    3. [CPU build](#####-CPU-build)
+    4. [CPU with MKL support build](#####-CPU-with-MKL-support-build)
+9. [Run the Solution](##-Run-the-Solution)
+    1. [GPU run](#####-GPU-run)
+    2. [GPU with MKL support run](#####-GPU-with-MKL-support-run)
+    3. [CPU run](#####-CPU-run)
+    4. [CPU with MKL support run](#####-CPU-with-MKL-support-run)
+10. [Usage](##-Usage)
+    1. [Preparing Dataset](####1\--Preparing-Dataset)
+    2. [Specifying General Settings](####2\--Specifying-General-Settings)
+    3. [Specifying Basic Hyper-parameters](####3\--Specifying-Basic-Hyper\-parameters)
+    4. [Specifying Advanced Hyper-parameters](####4\--Specifying-Advanced-Hyper\-parameters )
+    5. [Checking training logs](####5\--Checking-training-logs)
+    7. [Stopping and Delete the model's container](####6\--Stopping-and-Delete-the-model's-container)
+    8. [Testing the Model with Inference API](####7\--Testing-the-Model-with-Inference-API )
+11. [Training Hyper Parameters](##-Training-Hyper-Parameters)
+12. [Training Support Matrix](##-Training-Support-Matrix)
+13. [Known Errors](##-Known-Errors)
+13. [Acknowledgments](##-Acknowledgments)
 
 ## Prerequisites
 
@@ -52,7 +88,7 @@ This repository allows you to get started with training a State-of-the-art Deep 
 
 **This step is very important and if not performed the solution will not work properly)**** 
 
-- If you don't have neither docker nor docker-compose use the following  command 
+- If you have neither docker nor docker-compose use the following  command 
 
   ​			`chmod +x install_full.sh && source install_full.sh`
 
@@ -80,7 +116,7 @@ The setup script will adjust the base directory and the training docker image na
 <br>
 <br>
 
-- #### Validating the prerequisites installation
+#### Validating the prerequisites installation
 
   - Make sure that the `base_dir` field in  `docker_sdk_api/assets/paths.json` is correct (it must match the path of the root of the repo on your machine).	
 
@@ -94,7 +130,7 @@ The setup script will adjust the base directory and the training docker image na
 
   - Go to  `gui/src/environments/environment.ts ` and `gui/src/environments/environment.prod.ts  ` and change the following:
 
-    - All fields `dockerSDKUrl` and `trainingUrl` and `inferenceAPIUrl`:  must match the IP address of your machine (**Use the `ifconfig `command to check your IP address . Please use your private IP which starts by either 10. or 172.16.  or 192.168.**)
+    - All fields `dockerSDKUrl` , `trainingUrl` and `inferenceAPIUrl`:  must match the IP address of your machine (**Use the `ifconfig `command to check your IP address . Please use your private IP which starts by either 10. or 172.16.  or 192.168.**)
     
       ![](documentation_images/env.png)
       
@@ -119,7 +155,7 @@ The setup script will adjust the base directory and the training docker image na
 ### Remark - docker sdk port
 
 **Docker SDK API** uses the port **4222** to run.
-In case this port is used by another application. The api can be configured to run on a different port by doing the following steps:
+In case this port is used by another application. The API can be configured to run on a different port by doing the following steps:
 
 - Go to **docker_sdk_api/docker/Dockerfile** and change the value after the --port flag in the CMD command.
 
@@ -206,7 +242,7 @@ We offer **Intel MKL** support for both **CPU** and **GPU** version but please *
 - If you wish to deploy the **GPU with MKL** support solution you will **only benefit from MKL** accelerated training time  **when choosing CPU architecture in the general setting page in the training GUI** and you will also notice **longer build time and larger docker image** but with **faster training time**
 - If you're note planning on taking advantage of the **Intel MKL**  support please use the standard **GPU** and **CPU** build and run. 
 
-**You can also refer to [training support matrix](##Training Support Matrix) for more information.**
+You can also refer to [ training support matrix ](##Training-Support-Matrix) for more information.
 
 
 
@@ -335,21 +371,13 @@ Check your training logs to get better insights on the progress of the training.
 
 <br>
 
-#### 6- Downloading Models
-
-Download your model to use it in your applications or with the inference API
-
-![](./documentation_images/7.gif)
-
-<br>
-
-#### 7- Stopping and Delete the model's container
+#### 6- Stopping and Delete the model's container
 
 Delete the container's job to stop an ongoing job or to remove the container of a finished job. (Finished jobs are always available to download)
 
 ![](./documentation_images/8.gif)
 
-#### 8- Testing the Model with Inference API 
+#### 7- Testing the Model with Inference API 
 
 You can test your trained model using the inference API provided 
 
