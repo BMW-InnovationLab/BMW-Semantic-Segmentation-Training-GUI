@@ -44,7 +44,7 @@
                 <i nz-icon nzType="download" style="color: #FFD2E2;"></i>
             </button>
             <a *ngIf="jobIsDone(job) !== -1" [disabled]="false" nz-button nzType="default" nzShape="circle" nzSize="large"
-               class="list-item-button" [href]="modelsUrl + getSpecificJobDownloadableModelURI(job) + '/' + job + '.zip'">
+               class="list-item-button" [href]="modelsUrl + getSpecificJobDownloadableModelURI(job)">
                 <i nz-icon nzType="download" style="color: #ff005b;"></i>
             </a>
 
