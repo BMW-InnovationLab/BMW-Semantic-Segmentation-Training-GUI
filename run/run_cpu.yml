@@ -9,7 +9,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ../datasets:/datasets
       - ../checkpoints:/checkpoints
-      - ../classfiers:/classifiers
+      - ../classifiers:/classifiers
       - ../docker_sdk_api:/docker_sdk_api
       - ../training_api:/training_api
 
