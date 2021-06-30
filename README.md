@@ -2,16 +2,16 @@
 
 #  GluonCv Semantic Segmentation Training GUI  for Linux
 
-This repository allows you to get started with training a State-of-the-art Deep Learning model with little to no configuration needed! You provide your labeled dataset and you can start the training right away. This repository is based on [Gluoncv's](https://cv.gluon.ai/build/examples_segmentation/index.html) Framework. You can check the networks statistics [here](https://gluon-cv.mxnet.io/model_zoo/segmentation.html)
+This repository allows you to get started with training a State-of-the-art Deep Learning (DL) model for semantic segmentation with little to no configuration needed! You provide your labeled dataset and you can start the training right away. This repository is based on [Gluoncv's](https://cv.gluon.ai/build/examples_segmentation/index.html) Framework. You can check the networks statistics [here](https://gluon-cv.mxnet.io/model_zoo/segmentation.html)
 
 - All supported networks used in this project are taken from [GluonCv model zoo](https://gluon-cv.mxnet.io/model_zoo/segmentation.html) 
 - The app was tested with **Google Chrome**, hence it is recommended to use Chrome when training.
-- This solution can be deployed via 4 different setups 
-  - CPU for training using CPU
-  - GPU for training using GPU with support for CPU training as well 
-  - CPU with Intel MKL for training using CPU with Intel MKL for accelerated training speed 
-  - GPU with Intel MKL for training using GPU  with support for CPU training as well using Intel MKL for accelerated training speed 
-
+- We provide 4 different modes of deployement: 
+  - **CPU mode** supports training DL-models using CPU architectures
+  - **GPU mode** supports training DL-models using GPU/CPU architectures 
+  - **CPU with Intel MKL mode** supports training DL-models using CPU architectures with Intel MKL for faster trainings 
+  - **GPU with Intel MKL mode** supports training DL-models using GPU architectures and faster trainings using CPU architectures
+  -
 ![](./documentation_images/1.gif)
 
 <br>
@@ -238,9 +238,9 @@ The following is an example of how a dataset should be structured. Please put al
 
 We offer **Intel MKL** support for both **CPU** and **GPU** version but please **keep in mind** the following: 
 
-- If you wish to deploy the **CPU with MKL** support solution you may notice **longer build time and larger docker image size** but with **faster training time**
-- If you wish to deploy the **GPU with MKL** support solution you will **only benefit from MKL** accelerated training time  **when choosing CPU architecture in the general setting page in the training GUI** and you will also notice **longer build time and larger docker image** but with **faster training time**
-- If you're not planning on taking advantage of the **Intel MKL**  support please use the standard **GPU** and **CPU** build and run. 
+- If you wish to deploy the solution via the **CPU with MKL** mode, you may notice **longer build time and larger docker image size** but with **faster training time**
+- If you wish to deploy the solution via the **GPU with MKL** mode, you will **only benefit from MKL** accelerated training time  **when choosing CPU architecture in the general setting page in the training GUI**. However, you will notice **longer build time and larger docker image**.
+- If you're not planning on taking advantage of **Intel MKL** please use the standard **GPU** and **CPU** build and run modes. 
 
 You can also refer to [ training support matrix ](#training-support-matrix) for more information.
 
@@ -256,7 +256,7 @@ You can also refer to [ training support matrix ](#training-support-matrix) for 
 
 - ##### GPU with MKL support build
 
-  If you wish to deploy the training work-flow in **GPU with MKL support** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **GPU with Intel MKL** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f build/build_gpu_mkl.yml build
@@ -272,7 +272,7 @@ You can also refer to [ training support matrix ](#training-support-matrix) for 
 
 - ##### CPU with MKL support build
 
-  If you wish to deploy the training work-flow in **CPU with MKL support** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **CPU with Intel MKL** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f build/build_cpu_mkl.yml build
@@ -292,7 +292,7 @@ You can also refer to [ training support matrix ](#training-support-matrix) for 
 
 - ##### GPU with MKL support run
 
-  If you wish to deploy the training work-flow in **GPU with MKL support** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **GPU with Intel MKL** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f run/run_gpu_mkl.yml up
@@ -308,7 +308,7 @@ You can also refer to [ training support matrix ](#training-support-matrix) for 
 
 - ##### CPU with MKL support run
 
-  If you wish to deploy the training work-flow in **CPU with MKL support** mode, please write the following command from the repository's root directory 
+  If you wish to deploy the training work-flow in **CPU with Intel MKL** mode, please write the following command from the repository's root directory 
 
   ```sh
   docker-compose -f run/run_cpu_mkl.yml up
@@ -318,10 +318,10 @@ You can also refer to [ training support matrix ](#training-support-matrix) for 
 
 ## Usage
 
-- If the app is deployed on your machine:  open your web browser and type the following: `localhost:4200` or `127.0.0.1:4200  `
+- If the app is deployed on your machine: please open your web browser and type the following: `localhost:4200` or `127.0.0.1:4200  `
 
 
-- If the app is deployed on a different machine: open your web browser and type the following: `<machine_ip>:4200`
+- If the app is deployed on a different machine: please open your web browser and type the following: `<machine_ip>:4200`
 
 <br>
 
@@ -409,9 +409,9 @@ You can test your trained model using the inference API provided
 |         Solution         |                     Build                      |       Training       |                            Notes                             |
 | :----------------------: | :--------------------------------------------: | :------------------: | :----------------------------------------------------------: |
 |         **GPU**          |    Normal build time and docker image size     | normal training time | Better alternative if you are not planning on training using your CPU |
-| **GPU with MKL support** | Longer build time and larger docker image size | faster training time |         when choosing CPU architecture  in GUI only          |
+| **GPU with Intel MKL** | Longer build time and larger docker image size | faster training time |         when choosing CPU architecture  in GUI only          |
 |         **CPU**          |    Normal build time and docker image size     | normal training time |  Better alternative if you want faster and lighter solution  |
-| **CPU with MKL support** | Longer build time and larger docker image size | faster training time |     Better alternative if you wish faster training time      |
+| **CPU with Intel MKL** | Longer build time and larger docker image size | faster training time |     Better alternative if you wish faster training time      |
 
 <br>
 
