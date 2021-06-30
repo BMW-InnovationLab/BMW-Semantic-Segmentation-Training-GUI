@@ -237,9 +237,9 @@ The following is an example of how a dataset should be structured. Please put al
 
 We offer **Intel MKL** support for both **CPU** and **GPU** version but please **keep in mind** the following: 
 
-- If you wish to deploy the solution via the **CPU with MKL** mode, you may notice **longer build time and larger docker image size** but with **faster training time**
-- If you wish to deploy the solution via the **GPU with MKL** mode, you will **only benefit from MKL** accelerated training time  **when choosing CPU architecture in the general setting page in the training GUI**. However, you will notice **longer build time and larger docker image**.
-- If you're not planning on taking advantage of **Intel MKL** please use the standard **GPU** and **CPU** build and run modes. 
+- If you wish to deploy the solution via the **CPU with Intel MKL** mode, you may notice **longer build time and larger docker image size**. However, the **trainings will be faster than when deployed via the standard CPU mode**.
+- If you wish to deploy the solution via the **GPU with Intel MKL** mode, you will **only benefit from MKL** accelerated training **when choosing CPU architecture in the general setting page in the training GUI**. In addition, you will notice **longer build time and larger docker image**.
+- If you're not planning on taking advantage of **Intel MKL modes**, please use the standard **GPU** and **CPU** build and run modes. 
 
 You can also refer to [ training support matrix ](#training-support-matrix) for more information.
 
