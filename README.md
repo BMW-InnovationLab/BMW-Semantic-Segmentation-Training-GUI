@@ -9,8 +9,8 @@ This repository allows you to get started with training a State-of-the-art Deep 
 - We provide 4 different modes of deployement: 
   - **CPU mode** supports training DL-models using CPU architectures
   - **GPU mode** supports training DL-models using GPU/CPU architectures 
-  - **CPU with Intel MKL mode** supports training DL-models using CPU architectures with Intel MKL for faster trainings 
-  - **GPU with Intel MKL mode** supports training DL-models using GPU architectures and faster trainings using CPU architectures
+  - **CPU with Intel MKL mode** supports training DL-models using CPU architectures with Intel MKL for accelerated trainings 
+  - **GPU with Intel MKL mode** supports training DL-models using GPU architectures and accelerated trainings using CPU architectures
 ![](./documentation_images/1.gif)
 
 <br>
