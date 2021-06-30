@@ -239,7 +239,7 @@ We offer **Intel MKL** support for both **CPU** and **GPU** version but please *
 
 - If you wish to deploy the solution via the **CPU with Intel MKL** mode, you may notice **longer build time and larger docker image size**. However, the **trainings will be faster than when deployed via the standard CPU mode**.
 - If you wish to deploy the solution via the **GPU with Intel MKL** mode, you will **only benefit from MKL** accelerated training **when choosing CPU architecture in the general setting page in the training GUI**. In addition, you will notice **longer build time and larger docker image**.
-- If you're not planning on taking advantage of **Intel MKL modes**, please use the standard **GPU** and **CPU** build and run modes. 
+- If you're not planning on taking advantage of the **Intel MKL modes**, please use the standard **GPU** and **CPU** build and run modes. 
 
 You can also refer to [ training support matrix ](#training-support-matrix) for more information.
 
