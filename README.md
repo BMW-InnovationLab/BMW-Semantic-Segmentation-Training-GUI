@@ -5,7 +5,7 @@
 This repository allows you to get started with training a State-of-the-art Deep Learning (DL) model for semantic segmentation with little to no configuration needed! You provide your labeled dataset and you can start the training right away. This repository is based on [Gluoncv's](https://cv.gluon.ai/build/examples_segmentation/index.html) Framework. You can check the networks statistics [here](https://gluon-cv.mxnet.io/model_zoo/segmentation.html)
 
 - All supported networks used in this project are taken from [GluonCv model zoo](https://gluon-cv.mxnet.io/model_zoo/segmentation.html) 
-- The app was tested with **Google Chrome**, hence it is recommended to use Chrome when training.
+- The app was tested with **Google Chrome**.
 - We provide 4 different modes of deployement: 
   - **CPU mode** supports training DL-models using CPU architectures
   - **GPU mode** supports training DL-models using GPU/CPU architectures 
